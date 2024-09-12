@@ -28,36 +28,17 @@ var uielto_publication = {
 
       methods:    {
                     copy_clipboard(text){
-                      // Create a dummy input to copy the string array inside it
-                      var dummy = document.createElement("input");
-
-                      // Add it to the document
-                      document.body.appendChild(dummy);
-
-                      // Set its ID
-                      dummy.setAttribute("id", "dummy_id");
-
-                      // Output the array into it
-                      document.getElementById("dummy_id").value=text;
-
-                      // Select it
-                      dummy.select();
-
-                      // Copy its contents
-                      document.execCommand("copy");
-
-                      // Remove it as its not needed anymore
-                      document.body.removeChild(dummy);
-                      
+                      navigator.clipboard.writeText(text);
                     }
                   },
 
       template:   ' <b-card' +
                   '   :title="publication.title"' +
+                  '   title-tag="h6"' +
                   '   :img-src="publication.media_src"' +
-                  '   :img-alt="publication.media_alt" img-height="35%"' +
+                  '   :img-alt="publication.media_alt" img-height="25%"' +
                   '   img-top' +
-                  '   style="max-width: 20rem;"' +
+                  '   style="width: 25rem;"' +
                   '   class="mb-2"' +
                   ' >' +
                   '   <b-card-text>' +
